@@ -1,0 +1,46 @@
+﻿<h1>PrimeNG menu</h1>
+<!-- <p><a [routerLink]="['/servers']">Server Tables</a></p>
+<p><a [routerLink]="['/add']">Add Server</a></p> -->
+
+<p-menu [showTransitionOptions]="'0ms'" [hideTransitionOptions]="'0ms'" #menu [popup]="true" [model]="items"></p-menu>
+<button type="button" pButton icon="fa fa-fw fa-list" label="Menu" (click)="menu.toggle($event)"></button>
+
+<h1>Materials menu</h1>
+<nav class="sidenav">
+    <section class="sidenav-content">
+        <section class="nav-group collapsible">
+            <input id="tabexample1" type="checkbox">
+            <label for="tabexample1">Collapsible Nav Element</label>
+            <ul class="nav-list">
+                <li><a class="nav-link" [routerLink]="['/servers']">Server Tables</a></li>
+                <li><a class="nav-link" [routerLink]="['/add']">Add Server</a></li>
+            </ul>
+        </section>
+        <section class="nav-group">
+            <input id="tabexample2" type="checkbox">
+            <label for="tabexample2">Default Nav Element</label>
+            <ul class="nav-list">
+                <li><a class="nav-link" [routerLink]="['/servers']">Server Tables</a></li>
+                <li><a class="nav-link" [routerLink]="['/add']">Add Server</a></li>
+            </ul>
+        </section>
+    </section>
+</nav>
+
+<!-- <p><a [routerLink]="['/servers']">Server Tables</a></p>
+<p><a [routerLink]="['/add']">Add Server</a></p> -->
+
+<h1>Materials menu</h1>
+
+
+<button mat-button [matMenuTriggerFor]="menum">Menu</button>
+<mat-menu #menum="matMenu">
+  <button mat-menu-item [routerLink]="['/servers']">Server Tables</button>
+  <button mat-menu-item [routerLink]="['/add']">Add Server</button>
+</mat-menu>
+<!-- <p><a [routerLink]="['/servers']">Server Tables</a></p>
+<p><a [routerLink]="['/add']">Add Server</a></p> -->
+  
+
+
+
