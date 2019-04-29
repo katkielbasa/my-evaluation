@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        <h2>{{'add server'}}</h2>
+        <form [formGroup]="submitServerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">{{'labels.name'}}</label>
+                <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                />
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">{{translate.instant('errors.fn_is_required',{value: name })}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nic_id">{{'labels.nic_id'}}</label>
+                <input type="text" formControlName="nic_id" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nic_id.errors }"
+                />
+                <div *ngIf="submitted && f.nic_id.errors" class="invalid-feedback">
+                    <div *ngIf="f.nic_id.errors.required">{{'errors.ln_is_required'}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="createTime">{{'labels.createTime'}}</label>
+                <input type="date" formControlName="createTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createTime.errors }"
+                />
+                <div *ngIf="submitted && f.createTime.errors" class="invalid-feedback">
+                <div *ngIf="f.createTime.errors.required">{{'errors.birth_is_required'}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="cpu_count">{{'labels.cpu_count'}}</label>
+                <input type="number" formControlName="cpu_count" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cpu_count.errors }"
+                />
+                <div *ngIf="submitted && f.cpu_count.errors" class="invalid-feedback">
+                    <div *ngIf="f.cpu_count.errors.required">{{'errors.cpu_count_is_required'}}</div>
+                    <div *ngIf="f.cpu_count.errors.pattern">>{{'errors.positive_number'}}r</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="deployed">{{'labels.deployed'}}</label>
+                <select formControlName="deployed" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.deployed.errors }">
+                    <option value="true">{{'select.true'}}</option>
+                    <option value="false">{{'select.false'}}</option>
+                </select>
+                <div *ngIf="submitted && f.deployed.errors" class="invalid-feedback">
+                <div *ngIf="f.deployed.errors.required">{{'errors.please_select'}}</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-primary">{{'submit'}}</button>
+                <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                />
+                <a [routerLink]="['/servers']" class="btn btn-link">{{'cancel'}}</a>
+            </div>
+        </form>
+    </div>
+</div>

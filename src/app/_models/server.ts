@@ -1,6 +1,6 @@
 import { Time } from '@angular/common';
 
-export class Customer{
+export class Server{
     name: string;
     nic_id: string;
     cpu_count: number;
